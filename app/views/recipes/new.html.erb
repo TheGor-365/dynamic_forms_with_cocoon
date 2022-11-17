@@ -1,2 +1,7 @@
-<h1>Recipes#new</h1>
-<p>Find me in app/views/recipes/new.html.erb</p>
+<%= form_with model: @recipe, url: '/recipes', method: :post, local: true do |f| %>
+  <%= f.text_area :name %>
+  <%= f.fields_for :recipe_ingredients do |t| %>
+    <%= render "recipes/recipe_ingredient_fields", f: t %>
+  <% end %>
+  <%= link_to_add_association "add to", f, :recipe_ingredients %>
+<% end %>
