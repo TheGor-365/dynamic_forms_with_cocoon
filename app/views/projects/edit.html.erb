@@ -1,7 +1,9 @@
 <h1>Editing project</h1>
 
 <%= render "form", project: @project %>
-
+<% @project.tasks.each do |task| %>
+  <strong>Description:</strong> <%= task.description %>
+<% end %>
 <br>
 
 <div>
